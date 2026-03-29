@@ -261,4 +261,134 @@
     }
   });
 
+  /* ------------------------------------------
+     11. Order Form (order.html)
+     ------------------------------------------ */
+  var orderForm = document.getElementById('order-form');
+
+  if (orderForm) {
+    // Quantity +/- controls
+    orderForm.querySelectorAll('.qty-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = btn.closest('.order-item');
+        var qtySpan = item.querySelector('.qty-value');
+        var qty = parseInt(qtySpan.textContent, 10);
+
+        if (btn.classList.contains('qty-plus')) {
+          qty++;
+        } else if (btn.classList.contains('qty-minus') && qty > 0) {
+          qty--;
+        }
+
+        qtySpan.textContent = qty;
+        item.classList.toggle('selected', qty > 0);
+      });
+    });
+
+    // Pre-select item from URL parameter (?item=slug)
+    var urlParams = new URLSearchParams(window.location.search);
+    var preselect = urlParams.get('item');
+    if (preselect && /^[a-z0-9-]+$/.test(preselect)) {
+      var target = orderForm.querySelector('.order-item[data-id="' + preselect + '"]');
+      if (target) {
+        target.querySelector('.qty-value').textContent = '1';
+        target.classList.add('selected');
+        setTimeout(function () {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      }
+    }
+
+    // Set minimum date to today + 2 days
+    var dateInput = orderForm.querySelector('input[type="date"]');
+    if (dateInput) {
+      var minDate = new Date();
+      minDate.setDate(minDate.getDate() + 2);
+      dateInput.min = minDate.toISOString().split('T')[0];
+    }
+
+    // Form submission
+    orderForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Collect selected items
+      var selectedItems = [];
+      orderForm.querySelectorAll('.order-item').forEach(function (item) {
+        var qty = parseInt(item.querySelector('.qty-value').textContent, 10);
+        if (qty > 0) {
+          selectedItems.push({
+            name: item.getAttribute('data-name'),
+            price: item.getAttribute('data-price'),
+            qty: qty
+          });
+        }
+      });
+
+      if (selectedItems.length === 0) {
+        alert('Please select at least one item to order.');
+        return;
+      }
+
+      // Validate required fields
+      var requiredFields = orderForm.querySelectorAll('[required]');
+      var valid = true;
+      requiredFields.forEach(function (field) {
+        if (!field.value.trim()) {
+          valid = false;
+          field.style.borderColor = '#e74c5e';
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      if (!valid) return;
+
+      // Gather form data
+      var name = orderForm.querySelector('[name="name"]').value.trim();
+      var email = orderForm.querySelector('[name="email"]').value.trim();
+      var phone = orderForm.querySelector('[name="phone"]').value.trim();
+      var location = orderForm.querySelector('[name="location"]').value;
+      var fulfillment = orderForm.querySelector('[name="fulfillment"]').value;
+      var date = orderForm.querySelector('[name="date"]').value;
+      var instructions = orderForm.querySelector('[name="instructions"]').value.trim();
+
+      // Build email body
+      var itemsList = selectedItems.map(function (item) {
+        return '  - ' + item.name + ' x' + item.qty + ' (from $' + item.price + ')';
+      }).join('\n');
+
+      var body = 'New Order Request from ' + name + '\n\n'
+        + 'CUSTOMER INFO\n'
+        + 'Name: ' + name + '\n'
+        + 'Email: ' + email + '\n'
+        + 'Phone: ' + phone + '\n\n'
+        + 'ORDER DETAILS\n'
+        + 'Location: ' + location + '\n'
+        + 'Fulfillment: ' + fulfillment + '\n'
+        + 'Date Needed: ' + date + '\n\n'
+        + 'ITEMS ORDERED\n'
+        + itemsList + '\n';
+
+      if (instructions) {
+        body += '\nSPECIAL INSTRUCTIONS\n' + instructions + '\n';
+      }
+
+      body += '\n---\nSent from sweetdelishbakery.com order form';
+
+      var subject = 'New Order — ' + name + ' — ' + date;
+      var mailtoLink = 'mailto:sweetdelishbakery@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      window.location.href = mailtoLink;
+
+      // Show success message
+      orderForm.style.display = 'none';
+      var successEl = document.getElementById('order-success');
+      if (successEl) {
+        successEl.classList.remove('hidden');
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
+
 })();
