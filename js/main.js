@@ -372,7 +372,7 @@
         body += '\nSPECIAL INSTRUCTIONS\n' + instructions + '\n';
       }
 
-      body += '\n---\nSent from sweetdelishbakery.com order form';
+      body += '\n---\nSent from sweetdelishbakeryllc.com order form';
 
       var subject = 'New Order — ' + name + ' — ' + date;
       var mailtoLink = 'mailto:sweetdelishbakery@gmail.com'
