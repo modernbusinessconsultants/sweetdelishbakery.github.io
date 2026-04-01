@@ -34,7 +34,7 @@
     "sameAs": ["https://www.instagram.com/sweetdelishbakery/"],
     "address": [
       {"@type": "PostalAddress", "addressLocality": "Frisco", "addressRegion": "TX", "postalCode": "75034", "addressCountry": "US"},
-      {"@type": "PostalAddress", "addressLocality": "Austin", "addressRegion": "TX", "postalCode": "77857", "addressCountry": "US"}
+      {"@type": "PostalAddress", "addressLocality": "Austin", "addressRegion": "TX", "postalCode": "78758", "addressCountry": "US"}
     ],
     "openingHoursSpecification": [
       {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00"},
@@ -49,9 +49,12 @@
           "hasMenuItem": [
             {"@type": "MenuItem", "name": "Custom Frosted Sugar Cookies", "description": "Soft, buttery cookies that are fully customizable for any celebration.", "offers": {"@type": "Offer", "price": "45.00", "priceCurrency": "USD"}},
             {"@type": "MenuItem", "name": "Chunky Chocolate Chip Cookies", "description": "Rich chocolate chips with a hint of sea salt in a thick, chewy cookie.", "offers": {"@type": "Offer", "price": "30.00", "priceCurrency": "USD"}},
-            {"@type": "MenuItem", "name": "Red Velvet Cookies", "description": "Red velvet cookies with chocolate chips or cream cheese frosting.", "offers": {"@type": "Offer", "price": "17.00", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Red Velvet Cookies", "description": "Red velvet cookies with chocolate chips or cream cheese frosting.", "offers": {"@type": "Offer", "price": "35.00", "priceCurrency": "USD"}},
             {"@type": "MenuItem", "name": "Snickerdoodle Cookies", "description": "Classic cinnamon-sugar cookies with creamy butter and pure vanilla.", "offers": {"@type": "Offer", "price": "30.00", "priceCurrency": "USD"}},
-            {"@type": "MenuItem", "name": "Nutella Cookies", "description": "Generously stuffed with Nutella spread and topped with a dollop of Nutella.", "offers": {"@type": "Offer", "price": "30.00", "priceCurrency": "USD"}}
+            {"@type": "MenuItem", "name": "Nutella Cookies", "description": "Generously stuffed with Nutella spread and topped with a dollop of Nutella.", "offers": {"@type": "Offer", "price": "30.00", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Peanut Butter Blossom Cookies", "description": "A soft peanut butter base, crowned with a Hershey's Kiss.", "offers": {"@type": "Offer", "price": "35.00", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Cookies and Cream Cookies", "description": "Rich Oreo pieces and creamy white chocolate chips.", "offers": {"@type": "Offer", "price": "30.00", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "M&M Cookies", "description": "Chocolate cookies topped with colorful M&Ms.", "offers": {"@type": "Offer", "price": "30.00", "priceCurrency": "USD"}}
           ]
         },
         {
@@ -59,14 +62,22 @@
           "name": "Brownies",
           "hasMenuItem": [
             {"@type": "MenuItem", "name": "Dubai Chocolate Brownies", "description": "Three layers: brownie, pistachio cream with kinafe, and chocolate ganache.", "offers": {"@type": "Offer", "price": "6.00", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Dubai Chocolate", "description": "Dense chocolate base with toasted kunafa, pistachio filling, and silky chocolate topping.", "offers": {"@type": "Offer", "price": "6.00", "priceCurrency": "USD"}},
             {"@type": "MenuItem", "name": "Brownies", "description": "Delicious brownies filled with chocolate chips and topped with M&Ms.", "offers": {"@type": "Offer", "price": "25.00", "priceCurrency": "USD"}}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Cakes",
+          "hasMenuItem": [
+            {"@type": "MenuItem", "name": "Tres Leches Cake", "description": "Cloud-soft sponge cake soaked in sweet three-milk goodness, topped with light whipped cream.", "offers": {"@type": "Offer", "price": "40.00", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "7-Layer Magic Cookie Bar", "description": "Chocolate, coconut, and caramelized sweetness layered over a buttery graham base.", "offers": {"@type": "Offer", "price": "40.00", "priceCurrency": "USD"}}
           ]
         },
         {
           "@type": "MenuSection",
           "name": "Chocolate Covered",
           "hasMenuItem": [
-            {"@type": "MenuItem", "name": "Chocolate Covered Strawberries", "description": "Juicy strawberries coated in silky milk chocolate with optional sprinkles.", "offers": {"@type": "Offer", "price": "20.00", "priceCurrency": "USD"}},
             {"@type": "MenuItem", "name": "Chocolate Covered Oreos", "description": "Vanilla Oreos coated in white chocolate with colorful sprinkles.", "offers": {"@type": "Offer", "price": "20.00", "priceCurrency": "USD"}},
             {"@type": "MenuItem", "name": "Chocolate Covered Pretzel Rods", "description": "Chocolate or vanilla-dipped pretzel rods with vibrant sprinkles.", "offers": {"@type": "Offer", "price": "20.00", "priceCurrency": "USD"}}
           ]
@@ -137,38 +148,14 @@
       <div class="container">
         <div class="menu-filters">
           <button class="filter-btn active" data-category="all">All</button>
-          <button class="filter-btn" data-category="seasonal">Seasonal</button>
           <button class="filter-btn" data-category="cookies">Cookies</button>
           <button class="filter-btn" data-category="brownies">Brownies</button>
+          <button class="filter-btn" data-category="cakes">Cakes</button>
           <button class="filter-btn" data-category="chocolate-covered">Chocolate Covered</button>
         </div>
 
         <!-- Product Grid -->
         <div class="product-grid">
-
-          <!-- Valentine's Day Bundle -->
-          <article class="product-card" data-category="seasonal">
-            <span class="seasonal-badge">Seasonal</span>
-            <img src="images/valentines-bundle.jpg" alt="Valentine&#x27;s Day Bundle — Chocolate covered strawberries and brownies" loading="lazy" width="800" height="600">
-            <div class="product-card-body">
-              <h2>Valentine's Day Bundle</h2>
-              <p class="description">6 Chocolate Covered Strawberries + 2 Chocolate Brownies with Vanilla Frosting</p>
-              <p class="price">From $25</p>
-              <a href="order.html?item=valentines-day-bundle" class="btn btn-primary btn-sm btn-order">Order Now</a>
-            </div>
-          </article>
-
-          <!-- Valentine's Day Chocolate Covered Strawberries -->
-          <article class="product-card" data-category="seasonal">
-            <span class="seasonal-badge">Seasonal</span>
-            <img src="images/chocolate-strawberries-menu.jpg" alt="Valentine&#x27;s Day Chocolate Covered Strawberries — 1 dozen" loading="lazy" width="800" height="600">
-            <div class="product-card-body">
-              <h2>Valentine's Day Chocolate Covered Strawberries</h2>
-              <p class="description">Choose between 1 dozen chocolate, vanilla, or mix of chocolate covered strawberries.</p>
-              <p class="price">From $24</p>
-              <a href="order.html?item=valentines-chocolate-strawberries" class="btn btn-primary btn-sm btn-order">Order Now</a>
-            </div>
-          </article>
 
           <!-- Dubai Chocolate Brownies -->
           <article class="product-card" data-category="brownies">
@@ -214,7 +201,7 @@
             <div class="product-card-body">
               <h2>Red Velvet Cookies</h2>
               <p class="description">Sold by the dozen with either chocolate chips or topped with our delicious cream cheese frosting!</p>
-              <p class="price">From $17/half dozen</p>
+              <p class="price">From $35/dozen</p>
               <a href="order.html?item=red-velvet-cookies" class="btn btn-primary btn-sm btn-order">Order Now</a>
             </div>
           </article>
@@ -225,7 +212,7 @@
             <div class="product-card-body">
               <h2>Peanut Butter Blossom Cookies</h2>
               <p class="description">Savor the nostalgia! A soft peanut butter base, crowned with a Hershey's Kiss. The perfect blend of nutty and sweet!</p>
-              <p class="price">From $15/half dozen</p>
+              <p class="price">From $35/dozen</p>
               <div class="allergen-badges">
                 <span class="allergen-badge">Peanuts</span>
               </div>
@@ -246,7 +233,7 @@
 
           <!-- Nutella Cookies -->
           <article class="product-card" data-category="cookies">
-            <img src="images/nutella-cookies.jpg" alt="Nutella Cookies — Stuffed and topped with velvety Nutella" loading="lazy" width="800" height="600">
+            <img src="images/nutella-cookies.png" alt="Nutella Cookies — Stuffed and topped with velvety Nutella" loading="lazy" width="800" height="600" class="img-contain">
             <div class="product-card-body">
               <h2>Nutella Cookies</h2>
               <p class="description">Generously stuffed with velvety Nutella spread and gloriously topped with a dollop of Nutella for extra decadence!</p>
@@ -263,17 +250,6 @@
               <p class="description">Classic cinnamon-sugar goodness made with creamy butter, pure vanilla, and a touch of cinnamon. Sweet and spice!</p>
               <p class="price">From $30/dozen</p>
               <a href="order.html?item=snickerdoodle-cookies" class="btn btn-primary btn-sm btn-order">Order Now</a>
-            </div>
-          </article>
-
-          <!-- Thumbprint Cookies -->
-          <article class="product-card" data-category="cookies">
-            <img src="images/thumbprint-cookies.jpg" alt="Thumbprint Heart Cookies — Filled with strawberry jam" loading="lazy" width="800" height="600">
-            <div class="product-card-body">
-              <h2>Thumbprint Cookies</h2>
-              <p class="description">Our Thumbprint Heart Cookies are filled with strawberry jam. Substitutions available upon request!</p>
-              <p class="price">From $8/half dozen</p>
-              <a href="order.html?item=thumbprint-cookies" class="btn btn-primary btn-sm btn-order">Order Now</a>
             </div>
           </article>
 
@@ -299,17 +275,6 @@
             </div>
           </article>
 
-          <!-- Chocolate Covered Strawberries -->
-          <article class="product-card" data-category="chocolate-covered">
-            <img src="images/chocolate-covered-strawberries.jpg" alt="Chocolate Covered Strawberries — Silky milk chocolate with optional sprinkles" loading="lazy" width="800" height="600">
-            <div class="product-card-body">
-              <h2>Chocolate Covered Strawberries</h2>
-              <p class="description">Juicy strawberries coated in silky milk chocolate, with the option to add playful sprinkles. Perfect for any moment!</p>
-              <p class="price">From $10/half dozen</p>
-              <a href="order.html?item=chocolate-covered-strawberries" class="btn btn-primary btn-sm btn-order">Order Now</a>
-            </div>
-          </article>
-
           <!-- Chocolate Covered Oreos -->
           <article class="product-card" data-category="chocolate-covered">
             <img src="images/chocolate-covered-oreos.jpg" alt="Chocolate Covered Oreos — White chocolate shell with colorful sprinkles" loading="lazy" width="800" height="600">
@@ -329,6 +294,39 @@
               <p class="description">Choose from chocolate or vanilla-dipped pretzel rods, each topped with vibrant sprinkles.</p>
               <p class="price">From $20/dozen</p>
               <a href="order.html?item=chocolate-covered-pretzel-rods" class="btn btn-primary btn-sm btn-order">Order Now</a>
+            </div>
+          </article>
+
+          <!-- Tres Leches Cake -->
+          <article class="product-card" data-category="cakes">
+            <img src="images/tres-leches-cake.png" alt="Tres Leches Cake — Cloud-soft sponge soaked in three-milk goodness" loading="lazy" width="800" height="600" class="img-contain">
+            <div class="product-card-body">
+              <h2>Tres Leches Cake</h2>
+              <p class="description">A cloud-soft sponge cake soaked in sweet three-milk goodness, topped with light whipped cream for the dreamiest bite. Delicate, creamy, and irresistibly moist—this is comfort and elegance in every slice.</p>
+              <p class="price">From $40</p>
+              <a href="order.html?item=tres-leches-cake" class="btn btn-primary btn-sm btn-order">Order Now</a>
+            </div>
+          </article>
+
+          <!-- Dubai Chocolate -->
+          <article class="product-card" data-category="brownies">
+            <img src="images/dubai-chocolate.png" alt="Dubai Chocolate — Dense chocolate base with toasted kunafa and pistachio filling" loading="lazy" width="800" height="600" class="img-contain">
+            <div class="product-card-body">
+              <h2>Dubai Chocolate</h2>
+              <p class="description">Our Dubai Chocolate brownie features a dense, 1-inch thick chocolate base, layered with buttery toasted kunafa and luscious pistachio filling, then finished with a silky chocolate topping. This 3-inch treat is rich, textured, and irresistibly indulgent.</p>
+              <p class="price">From $6 each</p>
+              <a href="order.html?item=dubai-chocolate" class="btn btn-primary btn-sm btn-order">Order Now</a>
+            </div>
+          </article>
+
+          <!-- 7-Layer Magic Cookie Bar -->
+          <article class="product-card" data-category="cakes">
+            <img src="images/magic-cookie-bar.png" alt="7-Layer Magic Cookie Bar — Chocolate, coconut, and caramelized sweetness" loading="lazy" width="800" height="600" class="img-contain">
+            <div class="product-card-body">
+              <h2>7-Layer Magic Cookie Bar</h2>
+              <p class="description">A dreamy mix of chocolate, coconut, and caramelized sweetness layered over a buttery graham base. These magic bars are gooey, chewy, and perfectly golden—every bite is pure comfort.</p>
+              <p class="price">From $40</p>
+              <a href="order.html?item=magic-cookie-bar" class="btn btn-primary btn-sm btn-order">Order Now</a>
             </div>
           </article>
 
@@ -366,7 +364,7 @@
         <div class="footer-col">
           <h3>Locations</h3>
           <p>Frisco, TX 75034</p>
-          <p>Austin, TX 77857</p>
+          <p>Austin, TX 78758</p>
         </div>
         <div class="footer-col">
           <h3>Stay Connected</h3>
